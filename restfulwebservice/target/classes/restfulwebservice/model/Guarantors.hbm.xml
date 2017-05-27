@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 26, 2017 8:19:29 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="son.model.Guarantors" table="guarantors" catalog="student_loans" optimistic-lock="version">
+        <id name="guarantorId" type="int">
+            <column name="guarantor_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="addresses" class="son.model.Addresses" fetch="select">
+            <column name="address_id" />
+        </many-to-one>
+        <property name="guarantorName" type="string">
+            <column name="guarantor_name" length="45" />
+        </property>
+        <property name="guarantorEmail" type="string">
+            <column name="guarantor_email" length="45" />
+        </property>
+        <property name="guarantorPhone" type="string">
+            <column name="guarantor_phone" length="45" />
+        </property>
+        <property name="otherGuarantorDetails" type="string">
+            <column name="other_guarantor_details" length="45" />
+        </property>
+        <set name="studentLoanses" table="student_loans" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="guarantor_id" />
+            </key>
+            <one-to-many class="son.model.StudentLoans" />
+        </set>
+    </class>
+</hibernate-mapping>

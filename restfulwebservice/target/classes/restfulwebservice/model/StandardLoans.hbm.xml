@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 26, 2017 8:19:29 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="son.model.StandardLoans" table="standard_loans" catalog="student_loans" optimistic-lock="version">
+        <id name="standardLoanId" type="int">
+            <column name="standard_loan_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="standardLoanName" type="string">
+            <column name="standard_loan_name" length="45" />
+        </property>
+        <property name="standardLoanMinAmount" type="string">
+            <column name="standard_loan_min_amount" length="45" />
+        </property>
+        <property name="standardLoanMaxAmount" type="string">
+            <column name="standard_loan_max_amount" length="45" />
+        </property>
+        <property name="standardLoanPeriod" type="string">
+            <column name="standard_loan_period" length="45" />
+        </property>
+        <property name="standardLoanDescription" type="string">
+            <column name="standard_loan_description" length="45" />
+        </property>
+        <property name="standardLoanDetails" type="string">
+            <column name="standard_loan_details" length="45" />
+        </property>
+        <set name="studentLoanses" table="student_loans" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="standard_loan_id" />
+            </key>
+            <one-to-many class="son.model.StudentLoans" />
+        </set>
+    </class>
+</hibernate-mapping>

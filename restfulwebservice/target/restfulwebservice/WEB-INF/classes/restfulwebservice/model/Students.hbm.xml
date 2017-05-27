@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 26, 2017 8:19:29 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="son.model.Students" table="students" catalog="student_loans" optimistic-lock="version">
+        <id name="studentId" type="int">
+            <column name="student_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="studentName" type="string">
+            <column name="student_name" length="45" />
+        </property>
+        <property name="studentPhone" type="string">
+            <column name="student_phone" length="45" />
+        </property>
+        <property name="studentEmail" type="string">
+            <column name="student_email" length="45" />
+        </property>
+        <property name="otherStudentDetails" type="string">
+            <column name="other_student_details" length="45" />
+        </property>
+        <set name="studentAddresseses" table="student_addresses" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_id" />
+            </key>
+            <one-to-many class="son.model.StudentAddresses" />
+        </set>
+        <set name="studentLoanses" table="student_loans" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_id" />
+            </key>
+            <one-to-many class="son.model.StudentLoans" />
+        </set>
+        <set name="actualPaymentses" table="actual_payments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_id" />
+            </key>
+            <one-to-many class="son.model.ActualPayments" />
+        </set>
+        <set name="accountses" table="accounts" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_id" />
+            </key>
+            <one-to-many class="son.model.Accounts" />
+        </set>
+        <set name="plannedPaymentses" table="planned_payments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="student_id" />
+            </key>
+            <one-to-many class="son.model.PlannedPayments" />
+        </set>
+    </class>
+</hibernate-mapping>

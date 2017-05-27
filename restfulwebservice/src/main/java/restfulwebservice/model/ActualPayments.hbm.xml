@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 26, 2017 8:19:29 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="son.model.ActualPayments" table="actual_payments" catalog="student_loans" optimistic-lock="version">
+        <id name="actualPaymentId" type="int">
+            <column name="actual_payment_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="students" class="son.model.Students" fetch="select">
+            <column name="student_id" />
+        </many-to-one>
+        <property name="actualPaymentDate" type="date">
+            <column name="actual_payment_date" length="10" />
+        </property>
+        <property name="actualPaymentAmount" type="string">
+            <column name="actual_payment_amount" length="45" />
+        </property>
+        <property name="otherPaymentDetails" type="string">
+            <column name="other_payment_details" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

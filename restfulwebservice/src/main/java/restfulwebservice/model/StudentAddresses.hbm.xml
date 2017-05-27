@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 26, 2017 8:19:29 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="son.model.StudentAddresses" table="student_addresses" catalog="student_loans" optimistic-lock="version">
+        <id name="dateFrom" type="date">
+            <column name="date_from" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="addresses" class="son.model.Addresses" fetch="select">
+            <column name="address_id" />
+        </many-to-one>
+        <many-to-one name="refAddressTypes" class="son.model.RefAddressTypes" fetch="select">
+            <column name="address_type_code" length="45" />
+        </many-to-one>
+        <many-to-one name="students" class="son.model.Students" fetch="select">
+            <column name="student_id" />
+        </many-to-one>
+        <property name="dateTo" type="date">
+            <column name="date_to" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

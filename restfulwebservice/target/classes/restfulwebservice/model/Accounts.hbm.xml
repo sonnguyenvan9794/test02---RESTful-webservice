@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 26, 2017 8:19:29 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="son.model.Accounts" table="accounts" catalog="student_loans" optimistic-lock="version">
+        <id name="accountId" type="int">
+            <column name="account_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="refAccountTypes" class="son.model.RefAccountTypes" fetch="select">
+            <column name="account_type_code" length="45" />
+        </many-to-one>
+        <many-to-one name="refBanks" class="son.model.RefBanks" fetch="select">
+            <column name="bank_code" length="45" />
+        </many-to-one>
+        <many-to-one name="students" class="son.model.Students" fetch="select">
+            <column name="student_id" />
+        </many-to-one>
+        <property name="accountNumber" type="string">
+            <column name="account_number" length="45" />
+        </property>
+        <property name="otherAccountDetails" type="string">
+            <column name="other_account_details" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
