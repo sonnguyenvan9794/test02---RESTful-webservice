@@ -1,11 +1,14 @@
 package restfulwebservice.model;
 // Generated May 26, 2017 8:19:28 AM by Hibernate Tools 5.2.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -47,7 +50,7 @@ public class StandardLoans implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "standard_loan_id", unique = true, nullable = false)
 	public int getStandardLoanId() {
 		return this.standardLoanId;
@@ -118,6 +121,61 @@ public class StandardLoans implements java.io.Serializable {
 
 	public void setStudentLoanses(Set<StudentLoans> studentLoanses) {
 		this.studentLoanses = studentLoanses;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((standardLoanDescription == null) ? 0 : standardLoanDescription.hashCode());
+		result = prime * result + ((standardLoanDetails == null) ? 0 : standardLoanDetails.hashCode());
+		result = prime * result + ((standardLoanMaxAmount == null) ? 0 : standardLoanMaxAmount.hashCode());
+		result = prime * result + ((standardLoanMinAmount == null) ? 0 : standardLoanMinAmount.hashCode());
+		result = prime * result + ((standardLoanName == null) ? 0 : standardLoanName.hashCode());
+		result = prime * result + ((standardLoanPeriod == null) ? 0 : standardLoanPeriod.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StandardLoans other = (StandardLoans) obj;
+		if (standardLoanDescription == null) {
+			if (other.standardLoanDescription != null)
+				return false;
+		} else if (!standardLoanDescription.equals(other.standardLoanDescription))
+			return false;
+		if (standardLoanDetails == null) {
+			if (other.standardLoanDetails != null)
+				return false;
+		} else if (!standardLoanDetails.equals(other.standardLoanDetails))
+			return false;
+		if (standardLoanMaxAmount == null) {
+			if (other.standardLoanMaxAmount != null)
+				return false;
+		} else if (!standardLoanMaxAmount.equals(other.standardLoanMaxAmount))
+			return false;
+		if (standardLoanMinAmount == null) {
+			if (other.standardLoanMinAmount != null)
+				return false;
+		} else if (!standardLoanMinAmount.equals(other.standardLoanMinAmount))
+			return false;
+		if (standardLoanName == null) {
+			if (other.standardLoanName != null)
+				return false;
+		} else if (!standardLoanName.equals(other.standardLoanName))
+			return false;
+		if (standardLoanPeriod == null) {
+			if (other.standardLoanPeriod != null)
+				return false;
+		} else if (!standardLoanPeriod.equals(other.standardLoanPeriod))
+			return false;
+		return true;
 	}
 
 }

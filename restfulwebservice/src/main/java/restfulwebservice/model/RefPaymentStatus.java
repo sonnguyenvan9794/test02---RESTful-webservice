@@ -64,4 +64,26 @@ public class RefPaymentStatus implements java.io.Serializable {
 		this.plannedPaymentses = plannedPaymentses;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RefPaymentStatus other = (RefPaymentStatus) obj;
+		if (paymentStatusCode == null) {
+			if (other.paymentStatusCode != null)
+				return false;
+		} else if (!paymentStatusCode.equals(other.paymentStatusCode))
+			return false;
+		if (paymentStatusDescription == null) {
+			if (other.paymentStatusDescription != null)
+				return false;
+		} else if (!paymentStatusDescription.equals(other.paymentStatusDescription))
+			return false;
+		return true;
+	}
+
 }

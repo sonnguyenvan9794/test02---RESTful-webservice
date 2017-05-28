@@ -1,10 +1,13 @@
 package restfulwebservice.model;
 // Generated May 26, 2017 8:19:28 AM by Hibernate Tools 5.2.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -52,7 +55,7 @@ public class ActualPayments implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "actual_payment_id", unique = true, nullable = false)
 	public int getActualPaymentId() {
 		return this.actualPaymentId;
@@ -98,6 +101,49 @@ public class ActualPayments implements java.io.Serializable {
 
 	public void setOtherPaymentDetails(String otherPaymentDetails) {
 		this.otherPaymentDetails = otherPaymentDetails;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((actualPaymentAmount == null) ? 0 : actualPaymentAmount.hashCode());
+		result = prime * result + ((actualPaymentDate == null) ? 0 : actualPaymentDate.hashCode());
+		result = prime * result + ((otherPaymentDetails == null) ? 0 : otherPaymentDetails.hashCode());
+		result = prime * result + ((students == null) ? 0 : students.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ActualPayments other = (ActualPayments) obj;
+		if (actualPaymentAmount == null) {
+			if (other.actualPaymentAmount != null)
+				return false;
+		} else if (!actualPaymentAmount.equals(other.actualPaymentAmount))
+			return false;
+		if (actualPaymentDate == null) {
+			if (other.actualPaymentDate != null)
+				return false;
+		} else if (!actualPaymentDate.equals(other.actualPaymentDate))
+			return false;
+		if (otherPaymentDetails == null) {
+			if (other.otherPaymentDetails != null)
+				return false;
+		} else if (!otherPaymentDetails.equals(other.otherPaymentDetails))
+			return false;
+		if (students == null) {
+			if (other.students != null)
+				return false;
+		} else if (!students.equals(other.students))
+			return false;
+		return true;
 	}
 
 }

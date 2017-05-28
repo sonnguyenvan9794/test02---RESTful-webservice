@@ -1,11 +1,14 @@
 package restfulwebservice.model;
 // Generated May 26, 2017 8:19:28 AM by Hibernate Tools 5.2.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -70,7 +73,7 @@ public class Addresses implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "address_id", unique = true, nullable = false)
 	public int getAddressId() {
 		return this.addressId;
@@ -177,6 +180,63 @@ public class Addresses implements java.io.Serializable {
 
 	public void setGuarantorses(Set<Guarantors> guarantorses) {
 		this.guarantorses = guarantorses;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Addresses other = (Addresses) obj;
+		if (city == null) {
+			if (other.city != null)
+				return false;
+		} else if (!city.equals(other.city))
+			return false;
+		if (country == null) {
+			if (other.country != null)
+				return false;
+		} else if (!country.equals(other.country))
+			return false;
+		if (line1 == null) {
+			if (other.line1 != null)
+				return false;
+		} else if (!line1.equals(other.line1))
+			return false;
+		if (line2 == null) {
+			if (other.line2 != null)
+				return false;
+		} else if (!line2.equals(other.line2))
+			return false;
+		if (line3 == null) {
+			if (other.line3 != null)
+				return false;
+		} else if (!line3.equals(other.line3))
+			return false;
+		if (line4 == null) {
+			if (other.line4 != null)
+				return false;
+		} else if (!line4.equals(other.line4))
+			return false;
+		if (otherAddressDetails == null) {
+			if (other.otherAddressDetails != null)
+				return false;
+		} else if (!otherAddressDetails.equals(other.otherAddressDetails))
+			return false;
+		if (stateProvinceCountry == null) {
+			if (other.stateProvinceCountry != null)
+				return false;
+		} else if (!stateProvinceCountry.equals(other.stateProvinceCountry))
+			return false;
+		if (zipPostcode == null) {
+			if (other.zipPostcode != null)
+				return false;
+		} else if (!zipPostcode.equals(other.zipPostcode))
+			return false;
+		return true;
 	}
 
 }

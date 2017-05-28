@@ -71,4 +71,32 @@ public class RefAccountTypes implements java.io.Serializable {
 		this.accountses = accountses;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RefAccountTypes other = (RefAccountTypes) obj;
+		if (accountTypeCode == null) {
+			if (other.accountTypeCode != null)
+				return false;
+		} else if (!accountTypeCode.equals(other.accountTypeCode))
+			return false;
+		if (accountTypeDescription == null) {
+			if (other.accountTypeDescription != null)
+				return false;
+		} else if (!accountTypeDescription.equals(other.accountTypeDescription))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "RefAccountTypes [accountTypeCode=" + accountTypeCode + ", accountTypeDescription="
+				+ accountTypeDescription + "]";
+	}
+
 }

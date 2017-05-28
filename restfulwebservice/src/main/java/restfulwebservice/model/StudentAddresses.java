@@ -93,4 +93,41 @@ public class StudentAddresses implements java.io.Serializable {
 		this.dateTo = dateTo;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StudentAddresses other = (StudentAddresses) obj;
+		if (addresses == null) {
+			if (other.addresses != null)
+				return false;
+		} else if (!addresses.equals(other.addresses))
+			return false;
+		if (dateFrom == null) {
+			if (other.dateFrom != null)
+				return false;
+		} else if (!dateFrom.equals(other.dateFrom))
+			return false;
+		if (dateTo == null) {
+			if (other.dateTo != null)
+				return false;
+		} else if (!dateTo.equals(other.dateTo))
+			return false;
+		if (refAddressTypes == null) {
+			if (other.refAddressTypes != null)
+				return false;
+		} else if (!refAddressTypes.equals(other.refAddressTypes))
+			return false;
+		if (students == null) {
+			if (other.students != null)
+				return false;
+		} else if (!students.equals(other.students))
+			return false;
+		return true;
+	}
+
 }

@@ -86,7 +86,7 @@ public class RefBanksDAO {
 	}
 
 	public static RefBanks getRefBanksById(String id) {
-		RefBanks tmp = (RefBanks) Model.getById(RefBanks.class, Integer.parseInt(id));
+		RefBanks tmp = (RefBanks) Model.getById(RefBanks.class, id);
 		if (tmp == null)
 			logger.error("Lối get RefBanks By Id");
 		return tmp;

@@ -39,7 +39,7 @@ public class AccountsService {
     @GET
     @Path("/{accountNo}")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Response getAccounts(@PathParam("accountNo") String accountNo) {
+    public Response getAccounts(@PathParam("accountNo") int accountNo) {
     	Accounts account = AccountsDAO.getAccountsById(accountNo);
     	if (account == null){
     		return Response.status(200).entity(null).build();
@@ -76,7 +76,7 @@ public class AccountsService {
     @DELETE
     @Path("/{accountNo}")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Response deleteAccounts(@PathParam("accountNo") String account) {
+    public Response deleteAccounts(@PathParam("accountNo") int account) {
         boolean result = AccountsDAO.deleteAccounts(account);
         if (result){
         	return Response.status(200).entity(true).build();

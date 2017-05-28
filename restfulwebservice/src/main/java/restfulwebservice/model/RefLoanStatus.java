@@ -63,4 +63,26 @@ public class RefLoanStatus implements java.io.Serializable {
 		this.studentLoanses = studentLoanses;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RefLoanStatus other = (RefLoanStatus) obj;
+		if (loanStatusCode == null) {
+			if (other.loanStatusCode != null)
+				return false;
+		} else if (!loanStatusCode.equals(other.loanStatusCode))
+			return false;
+		if (loanStatusDescription == null) {
+			if (other.loanStatusDescription != null)
+				return false;
+		} else if (!loanStatusDescription.equals(other.loanStatusDescription))
+			return false;
+		return true;
+	}
+
 }

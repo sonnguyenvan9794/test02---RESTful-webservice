@@ -1,10 +1,13 @@
 package restfulwebservice.model;
 // Generated May 26, 2017 8:19:28 AM by Hibernate Tools 5.2.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -55,7 +58,7 @@ public class PlannedPayments implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "regular_order_id", unique = true, nullable = false)
 	public int getRegularOrderId() {
 		return this.regularOrderId;
@@ -111,6 +114,55 @@ public class PlannedPayments implements java.io.Serializable {
 
 	public void setOtherPaymentDetails(String otherPaymentDetails) {
 		this.otherPaymentDetails = otherPaymentDetails;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((otherPaymentDetails == null) ? 0 : otherPaymentDetails.hashCode());
+		result = prime * result + ((paymentDueDate == null) ? 0 : paymentDueDate.hashCode());
+		result = prime * result + ((plannedPaymentAmount == null) ? 0 : plannedPaymentAmount.hashCode());
+		result = prime * result + ((refPaymentStatus == null) ? 0 : refPaymentStatus.hashCode());
+		result = prime * result + ((students == null) ? 0 : students.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PlannedPayments other = (PlannedPayments) obj;
+		if (otherPaymentDetails == null) {
+			if (other.otherPaymentDetails != null)
+				return false;
+		} else if (!otherPaymentDetails.equals(other.otherPaymentDetails))
+			return false;
+		if (paymentDueDate == null) {
+			if (other.paymentDueDate != null)
+				return false;
+		} else if (!paymentDueDate.equals(other.paymentDueDate))
+			return false;
+		if (plannedPaymentAmount == null) {
+			if (other.plannedPaymentAmount != null)
+				return false;
+		} else if (!plannedPaymentAmount.equals(other.plannedPaymentAmount))
+			return false;
+		if (refPaymentStatus == null) {
+			if (other.refPaymentStatus != null)
+				return false;
+		} else if (!refPaymentStatus.equals(other.refPaymentStatus))
+			return false;
+		if (students == null) {
+			if (other.students != null)
+				return false;
+		} else if (!students.equals(other.students))
+			return false;
+		return true;
 	}
 
 }

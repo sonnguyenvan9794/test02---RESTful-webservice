@@ -86,7 +86,7 @@ public class RefAccountTypesDAO {
 	}
 
 	public static RefAccountTypes getRefAccountTypesById(String id) {
-		RefAccountTypes tmp = (RefAccountTypes) Model.getById(RefAccountTypes.class, Integer.parseInt(id));
+		RefAccountTypes tmp = (RefAccountTypes) Model.getById(RefAccountTypes.class, id);
 		if (tmp == null)
 			logger.error("Lối get RefAccountTypes By Id");
 		return tmp;

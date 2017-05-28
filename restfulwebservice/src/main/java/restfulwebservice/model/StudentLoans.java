@@ -1,10 +1,13 @@
 package restfulwebservice.model;
 // Generated May 26, 2017 8:19:28 AM by Hibernate Tools 5.2.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -55,7 +58,7 @@ public class StudentLoans implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "student_loan_id", unique = true, nullable = false)
 	public int getStudentLoanId() {
 		return this.studentLoanId;
@@ -159,6 +162,68 @@ public class StudentLoans implements java.io.Serializable {
 
 	public void setStudentLoanDetails(String studentLoanDetails) {
 		this.studentLoanDetails = studentLoanDetails;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		StudentLoans other = (StudentLoans) obj;
+		if (firstRepaymentDate == null) {
+			if (other.firstRepaymentDate != null)
+				return false;
+		} else if (!firstRepaymentDate.equals(other.firstRepaymentDate))
+			return false;
+		if (guarantors == null) {
+			if (other.guarantors != null)
+				return false;
+		} else if (!guarantors.equals(other.guarantors))
+			return false;
+		if (lastPaymentDate == null) {
+			if (other.lastPaymentDate != null)
+				return false;
+		} else if (!lastPaymentDate.equals(other.lastPaymentDate))
+			return false;
+		if (refLoanStatus == null) {
+			if (other.refLoanStatus != null)
+				return false;
+		} else if (!refLoanStatus.equals(other.refLoanStatus))
+			return false;
+		if (standardLoans == null) {
+			if (other.standardLoans != null)
+				return false;
+		} else if (!standardLoans.equals(other.standardLoans))
+			return false;
+		if (studentLoanAmount == null) {
+			if (other.studentLoanAmount != null)
+				return false;
+		} else if (!studentLoanAmount.equals(other.studentLoanAmount))
+			return false;
+		if (studentLoanComments == null) {
+			if (other.studentLoanComments != null)
+				return false;
+		} else if (!studentLoanComments.equals(other.studentLoanComments))
+			return false;
+		if (studentLoanDetails == null) {
+			if (other.studentLoanDetails != null)
+				return false;
+		} else if (!studentLoanDetails.equals(other.studentLoanDetails))
+			return false;
+		if (studentLoanPeriod == null) {
+			if (other.studentLoanPeriod != null)
+				return false;
+		} else if (!studentLoanPeriod.equals(other.studentLoanPeriod))
+			return false;
+		if (students == null) {
+			if (other.students != null)
+				return false;
+		} else if (!students.equals(other.students))
+			return false;
+		return true;
 	}
 
 }

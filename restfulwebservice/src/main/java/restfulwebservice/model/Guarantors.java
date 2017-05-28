@@ -1,11 +1,14 @@
 package restfulwebservice.model;
 // Generated May 26, 2017 8:19:28 AM by Hibernate Tools 5.2.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -57,7 +60,7 @@ public class Guarantors implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "guarantor_id", unique = true, nullable = false)
 	public int getGuarantorId() {
 		return this.guarantorId;
@@ -120,6 +123,43 @@ public class Guarantors implements java.io.Serializable {
 
 	public void setStudentLoanses(Set<StudentLoans> studentLoanses) {
 		this.studentLoanses = studentLoanses;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Guarantors other = (Guarantors) obj;
+		if (addresses == null) {
+			if (other.addresses != null)
+				return false;
+		} else if (!addresses.equals(other.addresses))
+			return false;
+		if (guarantorEmail == null) {
+			if (other.guarantorEmail != null)
+				return false;
+		} else if (!guarantorEmail.equals(other.guarantorEmail))
+			return false;
+		if (guarantorName == null) {
+			if (other.guarantorName != null)
+				return false;
+		} else if (!guarantorName.equals(other.guarantorName))
+			return false;
+		if (guarantorPhone == null) {
+			if (other.guarantorPhone != null)
+				return false;
+		} else if (!guarantorPhone.equals(other.guarantorPhone))
+			return false;
+		if (otherGuarantorDetails == null) {
+			if (other.otherGuarantorDetails != null)
+				return false;
+		} else if (!otherGuarantorDetails.equals(other.otherGuarantorDetails))
+			return false;
+		return true;
 	}
 
 }

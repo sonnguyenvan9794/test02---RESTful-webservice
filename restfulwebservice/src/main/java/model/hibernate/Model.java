@@ -48,7 +48,7 @@ public class Model {
 	 * @return ArrayList >= 1 phần tử nếu k lỗi, null nếu có lỗi
 	 */
 	public static ArrayList<Object> getList(String objectEntity) {
-		ArrayList<Object> list = new ArrayList();
+		ArrayList<Object> list = new ArrayList<Object>();
 		//Tạo 1 phần tử để phân biệt 
 		// - getList lỗi: return null
 		// - list trống:  return 1 phần tử

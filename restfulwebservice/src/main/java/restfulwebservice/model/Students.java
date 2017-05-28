@@ -1,11 +1,14 @@
 package restfulwebservice.model;
 // Generated May 26, 2017 8:19:28 AM by Hibernate Tools 5.2.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -73,7 +76,7 @@ public class Students implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "student_id", unique = true, nullable = false)
 	public int getStudentId() {
 		return this.studentId;
@@ -169,4 +172,46 @@ public class Students implements java.io.Serializable {
 		this.plannedPaymentses = plannedPaymentses;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Students other = (Students) obj;
+		if (otherStudentDetails == null) {
+			if (other.otherStudentDetails != null)
+				return false;
+		} else if (!otherStudentDetails.equals(other.otherStudentDetails))
+			return false;
+		if (studentEmail == null) {
+			if (other.studentEmail != null)
+				return false;
+		} else if (!studentEmail.equals(other.studentEmail))
+			return false;
+		if (studentLoanses == null) {
+			if (other.studentLoanses != null)
+				return false;
+		} else if (!studentLoanses.equals(other.studentLoanses))
+			return false;
+		if (studentName == null) {
+			if (other.studentName != null)
+				return false;
+		} else if (!studentName.equals(other.studentName))
+			return false;
+		if (studentPhone == null) {
+			if (other.studentPhone != null)
+				return false;
+		} else if (!studentPhone.equals(other.studentPhone))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Students [studentId=" + studentId + ", studentName=" + studentName + ", studentPhone=" + studentPhone
+				+ ", studentEmail=" + studentEmail + ", otherStudentDetails=" + otherStudentDetails + "]";
+	}
 }

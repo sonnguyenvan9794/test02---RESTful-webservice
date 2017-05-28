@@ -39,7 +39,7 @@ public class StudentsService {
     @GET
     @Path("/{stuNo}")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Response getStudents(@PathParam("stuNo") String stuNo) {
+    public Response getStudents(@PathParam("stuNo") int stuNo) {
     	Students student = StudentsDAO.getStudentsById(stuNo);
     	if (student == null){
     		return Response.status(200).entity(null).build();
@@ -77,7 +77,7 @@ public class StudentsService {
     @DELETE
     @Path("/{stuNo}")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Response deleteStudents(@PathParam("stuNo") String student) {
+    public Response deleteStudents(@PathParam("stuNo") int student) {
         boolean result = StudentsDAO.deleteStudents(student);
         if (result){
         	return Response.status(200).entity(true).build();

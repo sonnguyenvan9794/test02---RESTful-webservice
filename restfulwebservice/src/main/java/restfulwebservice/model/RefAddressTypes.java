@@ -71,4 +71,26 @@ public class RefAddressTypes implements java.io.Serializable {
 		this.studentAddresseses = studentAddresseses;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RefAddressTypes other = (RefAddressTypes) obj;
+		if (addressTypeCode == null) {
+			if (other.addressTypeCode != null)
+				return false;
+		} else if (!addressTypeCode.equals(other.addressTypeCode))
+			return false;
+		if (addressTypeDescription == null) {
+			if (other.addressTypeDescription != null)
+				return false;
+		} else if (!addressTypeDescription.equals(other.addressTypeDescription))
+			return false;
+		return true;
+	}
+
 }

@@ -1,9 +1,12 @@
 package restfulwebservice.model;
 // Generated May 26, 2017 8:19:28 AM by Hibernate Tools 5.2.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -52,7 +55,7 @@ public class Accounts implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "account_id", unique = true, nullable = false)
 	public int getAccountId() {
 		return this.accountId;
@@ -108,6 +111,50 @@ public class Accounts implements java.io.Serializable {
 
 	public void setOtherAccountDetails(String otherAccountDetails) {
 		this.otherAccountDetails = otherAccountDetails;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Accounts other = (Accounts) obj;
+		if (accountNumber == null) {
+			if (other.accountNumber != null)
+				return false;
+		} else if (!accountNumber.equals(other.accountNumber))
+			return false;
+		if (otherAccountDetails == null) {
+			if (other.otherAccountDetails != null)
+				return false;
+		} else if (!otherAccountDetails.equals(other.otherAccountDetails))
+			return false;
+		if (refAccountTypes == null) {
+			if (other.refAccountTypes != null)
+				return false;
+		} else if (!refAccountTypes.equals(other.refAccountTypes))
+			return false;
+		if (refBanks == null) {
+			if (other.refBanks != null)
+				return false;
+		} else if (!refBanks.equals(other.refBanks))
+			return false;
+		if (students == null) {
+			if (other.students != null)
+				return false;
+		} else if (!students.equals(other.students))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Accounts [accountId=" + accountId + ", refAccountTypes=" + refAccountTypes + ", refBanks=" + refBanks
+				+ ", students=" + students + ", accountNumber=" + accountNumber + ", otherAccountDetails="
+				+ otherAccountDetails + "]";
 	}
 
 }

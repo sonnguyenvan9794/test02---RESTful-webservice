@@ -38,9 +38,9 @@ public class AccountsDAO {
 	 * @param id id
 	 * @return boolean
 	 */
-	public static boolean deleteAccounts(String id) {
+	public static boolean deleteAccounts(int id) {
 		Accounts accounts = new Accounts();
-		accounts.setAccountId( Integer.parseInt( id));
+		accounts.setAccountId(  id);
 
 		boolean result = Model.delete(accounts);
 		if (!result)
@@ -85,8 +85,8 @@ public class AccountsDAO {
 		return result;
 	}
 
-	public static Accounts getAccountsById(String id) {
-		Accounts tmp = (Accounts) Model.getById(Accounts.class, Integer.parseInt(id) );
+	public static Accounts getAccountsById(int id) {
+		Accounts tmp = (Accounts) Model.getById(Accounts.class, id);
 		if (tmp == null)
 			logger.error("Lối get Accounts By Id");
 		return tmp;

@@ -71,4 +71,31 @@ public class RefBanks implements java.io.Serializable {
 		this.accountses = accountses;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RefBanks other = (RefBanks) obj;
+		if (bankCode == null) {
+			if (other.bankCode != null)
+				return false;
+		} else if (!bankCode.equals(other.bankCode))
+			return false;
+		if (bankName == null) {
+			if (other.bankName != null)
+				return false;
+		} else if (!bankName.equals(other.bankName))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "RefBanks [bankCode=" + bankCode + ", bankName=" + bankName + "]";
+	}
+	
 }
