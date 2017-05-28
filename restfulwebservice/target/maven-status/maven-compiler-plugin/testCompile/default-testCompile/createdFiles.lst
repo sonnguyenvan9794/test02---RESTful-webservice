@@ -1,2 +1,7 @@
 restfulwebservice\AccountsDAOTest$1.class
+restfulwebservice\RefBanksDAOTest.class
+restfulwebservice\AccountsDAOTest$ForeignTest.class
+restfulwebservice\AccountsDAOTest.class
+restfulwebservice\AccountsDAOTest$ForeignKey.class
 restfulwebservice\StudentsDAOTest.class
+restfulwebservice\RefAccountTypesDAOTest.class

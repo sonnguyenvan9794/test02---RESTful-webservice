@@ -1,0 +1,2 @@
+INDEX VERSION 1.130+D:\GitHub repository\test 02 ifiSolution restful webservice\.metadata\.plugins\org.eclipse.jdt.core
+1557223273.index
